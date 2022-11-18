@@ -35,3 +35,13 @@ exports.bulkUpdateService = async (data) => {
   const result = await Promise.all(bulkproducts);
   return result;
 };
+
+exports.deletProductServiceById = async (id) => {
+  const deletedProduct = await Product.deleteOne({ _id: id });
+  return deletedProduct;
+};
+
+exports.bulkDeleteProductService = async (ids) => {
+  const bulkdelete = await Product.deleteMany({ _id: ids });
+  return bulkdelete;
+};

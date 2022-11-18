@@ -9,10 +9,12 @@ router
   .get(productController.getProduct);
 
 router.route("/bulk-update").patch(productController.bulkUpdate);
+router.route("/bulk-delete").delete(productController.bulkDeleteProduct);
 
 router
   .route("/:id")
   .get(productController.getProductById)
-  .patch(productController.updateProductById);
+  .patch(productController.updateProductById)
+  .delete(productController.deleteProductById);
 
 module.exports = router;
